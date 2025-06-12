@@ -99,7 +99,7 @@ public class Logical extends OperationsBase {
                     .get();
 
             // Validate response - don't treat 4xx class errors as exceptions, we want to return an error as the response
-            if (restResponse.getStatus() != 200 && !(restResponse.getStatus() >= 400
+            if (restResponse.getStatus() != 200 && !(restResponse.getStatus() >= 400 && restResponse.getStatus() != 412
                     && restResponse.getStatus() < 500)) {
                 throw new VaultException(
                         "Vault responded with HTTP status code: " + restResponse.getStatus()
