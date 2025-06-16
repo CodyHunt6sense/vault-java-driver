@@ -53,14 +53,14 @@ public class RetryTests {
 
         VaultTestUtils.shutdownMockVault(server);
     }
-    
+
     @Test
     public void testRetries_412() throws Exception {
         final StatusRetriesMockVault retriesMockVault = new StatusRetriesMockVault(5, 200,
                 "{\"lease_id\":\"12345\",\"renewable\":false,\"lease_duration\":10000,\"data\":{\"value\":\"mock\"}}", 412);
         final Server server = VaultTestUtils.initHttpMockVault(retriesMockVault);
         server.start();
-        
+
         final VaultConfig vaultConfig = new VaultConfig().address("http://127.0.0.1:8999")
                 .token("mock_token").build();
         final Vault vault = Vault.create(vaultConfig);
