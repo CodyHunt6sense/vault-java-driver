@@ -6,9 +6,9 @@ plugins {
 }
 
 
-group 'io.github.jopenlibs'
+group 'com.6sense'
 archivesBaseName = 'vault-java-driver'
-version '6.2.0'
+version '6.3.0'
 
 sourceCompatibility = 11
 targetCompatibility = 11
